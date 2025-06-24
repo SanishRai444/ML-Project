@@ -1,0 +1,35 @@
+.blur-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+body {
+    text-align: justify;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h1,
+h2 {
+    color: #3fa4a5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.images img {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}

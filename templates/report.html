@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Classification Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+</head>
+
+<body>
+    {% include 'navbar.html'%}
+    <div class="blur-bg"></div>
+    <div class="Topic">
+        <h1>CLASSIFICATION REPORT</h1>
+    </div>
+    <div class="content">
+        <p>Image Name: <strong>{{ image_name }}</strong></p>
+        <h2>LABEL: {{ label }}</h2>
+        <p>{{ label_info }}</p>
+        <br>
+        <p>Image Channels Visualization:</p>
+
+    </div>
+
+
+    <div class="image">
+        <img src="{{ url_for('static', filename='reports/report_image.png') }}" alt="Channels Visualization">
+
+        <br><br>
+    </div>
+
+</body>
+
+</html>

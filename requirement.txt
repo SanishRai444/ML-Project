@@ -1,0 +1,5 @@
+pip install geopy
+pip install geemap
+pip install earthengine-api
+pip install tensorflow numpy rasterio matplotlib
+pip install Flask Werkzeug

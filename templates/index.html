@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='images/background.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    {% include 'navbar.html' %}
+
+    <div class="main-text">
+        <h1 id="Topic">
+            POLLUTION CLASSIFICATION
+        </h1>
+        <pre>
+    DO you want to insert or extract ?
+    If you want to etract enter the location...
+    <b id="message">ONLY TEOGIFF ARE ACCEPTED</b>
+        </pre>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-danger">
+        <p><strong>Error:</strong></p>
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <div class="input-wrapper">
+            <label class="custom-input">
+                <input type="text" name="location" placeholder="Enter location here..">
+            </label>
+        </div>
+
+        <div class="input-wrapper">
+            <label class="custom-input">
+                <input type="file" name="image" accept=".tif,.tiff,image/*" style="display: none;"
+                    onchange="document.getElementById('fileName').textContent = this.files[0].name">
+                <span id="fileName">Choose an image...</span>
+            </label>
+        </div>
+
+        <div class="btn-wrapper">
+            <button class="clear-btn" type="submit">Process</button>
+            <button class="clear-btn" type="button" onclick="clearInputs()">Clear</button>
+        </div>
+    </form>
+
+
+    <script>
+        function clearInputs() {
+            // Clear text input
+            document.querySelector('input[type="text"]').value = "";
+
+            // Clear file input
+            const fileInput = document.querySelector('input[type="file"]');
+            fileInput.value = "";
+            document.getElementById('fileName').textContent = "Choose an image...";
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

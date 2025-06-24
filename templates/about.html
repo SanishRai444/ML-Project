@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Classification Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+</head>
+
+<body>
+    {% include 'navbar.html'%}
+    <div class="blur-bg"></div>
+    <div class="container">
+        <h1>About This Project</h1>
+        <p>This project is an AI-powered pollution detection system that analyzes satellite data to monitor air quality
+            across different regions. It uses heatmap-like images generated from Earth observation satellites to
+            classify
+            whether an area is polluted or not</p>.
+
+        <h2>What Does It Do?</h2>
+        <p><b>Monitors Air Pollution:</b> The system collects weekly pollution data from satellite sources such as
+            Sentinel-5P.</p>
+
+        <p><b>Processes Multiple Pollutants:</b> It considers gases like NO₂, SO₂, CO, O₃, and Aerosol Optical
+            Depth(AOD) to assess pollution levels.</p>
+
+        <p><b>Generates Composite Images:</b> The collected data is averaged over a week to produce meaningful and
+            stable pollution heatmaps.</p>
+
+        <p><b>Classifies Pollution Levels:</b> A Convolutional Neural Network (CNN) model is trained to classify areas
+            as either polluted or not polluted based on these weekly images.</p>
+
+        <p><b>User Interaction:</b> Users can check the pollution status of any location by selecting it, and the system
+            will analyze and show the latest results.</p>
+
+        <h2>How Does It Work?</h2>
+        <p><b>Satellite Data Collection:</b> Pollutant bands are extracted using the Google Earth Engine API.
+        </p>
+        <p><b>Image Processing:</b> A weekly mean image is generated for each pollutant.</p>
+
+        <P><b>AI Classification:</b> These processed images are passed through a trained CNN model that predicts whether
+            the area is polluted.</P>
+
+        <p> <b>Result Visualization:</b> The system displays the classification result and can optionally show the
+            pollution
+            distribution in image form.</p>
+
+
+    </div>
+    <div class="images">
+        <h1>Convolutional Neural Network (CNN) model</h1>
+        This is the image of the graph , where the accuracy and validity of the model is plotted.
+        <img src="./static/images/modelinfo.png">
+        <h1>Classification Information</h1>
+        Form the below images you can see,the values of different pollutants and AQI coressponding to the label given .
+        <img src="./static/images/pollutioninfo1.png">
+        <img src="./static/images/pollutioninfo2.png">
+    </div>
+
+
+</body>
+
+</html>
