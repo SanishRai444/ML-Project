@@ -4,7 +4,7 @@ from geopy.geocoders import Nominatim
 from datetime import datetime, timedelta, timezone
 import os
 
-ee.Initialize(project='ff-sanishrai444')
+ee.Initialize(project='your project name')
 
 def get_lat_lon(location_name):
     geolocator = Nominatim(user_agent="geoapi")
